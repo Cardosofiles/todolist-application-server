@@ -10,6 +10,11 @@ WORKDIR /app
 # Copia o JAR gerado localmente
 COPY target/*.jar app.jar
 
+# Cria o diretório de logs
+RUN mkdir -p /logs
+
+# Exponha a porta 8080
 EXPOSE 8080
 
+# Inicia a aplicação
 ENTRYPOINT ["java", "-jar", "app.jar"]

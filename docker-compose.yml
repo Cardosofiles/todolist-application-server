@@ -41,11 +41,14 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     depends_on:
       - pg
+    volumes:
+      - logs:/logs
     networks:
       - backend
 
 volumes:
   pgdata:
+  logs:
 
 networks:
   backend:

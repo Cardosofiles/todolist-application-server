@@ -19,15 +19,15 @@ public class UserController {
   @PostMapping("/")
   public ResponseEntity<Object> create(@RequestBody UserModel userModel) {
     var user = this.userRepository.findByUsername(userModel.getUsername());
-    
+
     if (user != null) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST)
           .body("Usuário já existe com esse username.");
     }
 
-    var passwordHash = BCrypt.withDefaults()
-    .hashToString(12, userModel.getPassword().toCharArray());
-    
+    var passwordHash =
+        BCrypt.withDefaults().hashToString(12, userModel.getPassword().toCharArray());
+
     userModel.setPassword(passwordHash);
 
     var userCreated = this.userRepository.save(userModel);
