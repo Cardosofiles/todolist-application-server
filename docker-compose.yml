@@ -9,9 +9,9 @@ services:
     depends_on:
       - pg
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://pg:5432/goal_track_db
-      SPRING_DATASOURCE_USERNAME: docker
-      SPRING_DATASOURCE_PASSWORD: docker
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
     networks:
       - backend
 
