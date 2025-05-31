@@ -10,3 +10,4 @@ public class TodolistApplicationServerApplication {
 		SpringApplication.run(TodolistApplicationServerApplication.class, args);
 	}
 }
+
