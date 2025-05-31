@@ -3,6 +3,8 @@ version: "3.8"
 services:
   app:
     build: .
+    env_file:
+      - .env
     container_name: todolist-api
     ports:
       - "8080:8080"
@@ -43,12 +45,14 @@ services:
       - pg
     volumes:
       - logs:/logs
+      - pgadmin-data:/var/lib/pgadmin
     networks:
       - backend
 
 volumes:
   pgdata:
   logs:
+  pgadmin-data:
 
 networks:
   backend:
